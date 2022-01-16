@@ -5,27 +5,20 @@ import Load.Loader;
 import Transform.ItemAsMap;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public abstract class GeneralTransformer {
-    private ItemAsMap map;
+    private ArrayList<ArrayList<ItemAsMap>> map;
 
     public GeneralTransformer() {
-        this.map = new ItemAsMap();
+        this.map = new ArrayList<>();
     }
 
     public void getItems(File file, Extractor extractor) {
         this.map = extractor.extract(file);
     }
 
-    public void loadItems(File file, Loader loader) {
-        loader.load(this.map, file);
-    }
-
-    public ItemAsMap getMap() {
-        return map;
-    }
-
-    public void setMap(ItemAsMap map) {
-        this.map = map;
+    public void loadItems(File[] files, Loader loader) {
+        loader.load(this.map, files);
     }
 }

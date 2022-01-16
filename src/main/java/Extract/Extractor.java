@@ -3,7 +3,8 @@ package Extract;
 import Transform.ItemAsMap;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public interface Extractor {
-    ItemAsMap extract(File file);
+    ArrayList<ArrayList<ItemAsMap>> extract(File file);
 }
