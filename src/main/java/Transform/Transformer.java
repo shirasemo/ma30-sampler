@@ -1,5 +1,7 @@
 package Transform;
 
+import java.io.File;
+
 public interface Transformer {
-    void transform();
+    void transform(File source, File dest);
 }
