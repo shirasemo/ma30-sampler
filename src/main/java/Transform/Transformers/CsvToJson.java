@@ -2,7 +2,6 @@ package Transform.Transformers;
 
 import Extract.Extractors.CsvExtractor;
 import Load.Loaders.JsonLoader;
-import Transform.ItemAsMap;
 import Transform.Transformer;
 
 import java.io.File;
