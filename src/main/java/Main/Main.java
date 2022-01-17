@@ -1,12 +1,13 @@
 package Main;
 
-import Extract.Extractors.CsvExtractor;
+import Transform.Transformers.CsvToJson;
 
 import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        CsvExtractor csvExtractor = new CsvExtractor();
-        csvExtractor.extract(new File("C:\\Users\\shira\\Code\\Sampler\\src\\main\\resources\\MadaReports.csv"));
+        CsvToJson csvToJson = new CsvToJson();
+        File[] json = {new File("C:\\Users\\shira\\Code\\Sampler\\src\\main\\resources\\mada_reports\\report1.json")};
+        csvToJson.transform(new File("C:\\Users\\shira\\Code\\Sampler\\src\\main\\resources\\MadaReports.csv"),json);
     }
 }

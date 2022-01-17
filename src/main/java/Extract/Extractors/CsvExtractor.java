@@ -18,11 +18,10 @@ public class CsvExtractor implements Extractor {
             String[] keys = line.split(",");
             while ((line = br.readLine()) != null) {
                 String values[] = line.split(",");
-                for (int i = 0; i < values.length; i++) {
-                    ItemAsMap item = new ItemAsMap();
+                ItemAsMap item = new ItemAsMap();
+                for (int i = 0; i < values.length; i++)
                     item.addParameter(keys[i], values[i]);
-                    map.get(index).add(item);
-                }
+                map.get(index).add(item);
                 if (map.get(index).size() == 50000) {
                     index++;
                     map.add(new ArrayList<>());
