@@ -25,14 +25,4 @@ public abstract class GeneralTransformer {
     public ArrayList<ArrayList<ItemAsMap>> getMap() {
         return map;
     }
-  /*  public int[] getIndex(String id) {
-        int[] indexes = new int[2];
-        for (int i = 0; i < this.map.size(); i++)
-            for (int j = 0; j < this.map.get(i).size(); j++)
-                if (this.map.get(i).get(j).getParameter("IDNum").equals(id)) {
-                    indexes[0] = i;
-                    indexes[1] = j;
-                }
-        return indexes;
-    } */
 }

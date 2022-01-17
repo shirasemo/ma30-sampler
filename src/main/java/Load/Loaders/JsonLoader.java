@@ -6,7 +6,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class JsonLoader extends GeneralLoader implements Loader {
@@ -19,9 +18,6 @@ public class JsonLoader extends GeneralLoader implements Loader {
                     String input = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(item.get(i));
                     write(dest[i], input);
                 } catch (JsonProcessingException e) {
-                    e.printStackTrace();
-                }
-                catch (IOException e) {
                     e.printStackTrace();
                 }
             }

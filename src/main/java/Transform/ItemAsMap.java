@@ -9,9 +9,7 @@ public class ItemAsMap {
         this.parameters = new HashMap<>();
     }
 
-    public HashMap<String, String> getParameters() {
-        return this.parameters;
-    }
+    public HashMap<String, String> getParameters() { return this.parameters; }
 
     public String getParameter(String key) {
         return this.parameters.get(key);
