@@ -14,7 +14,7 @@ public class CsvToJson extends GeneralTransformer implements Transformer {
 
     @Override
     public void transform(File source, File[] dest) {
-        super.getItems(source, new CsvExtractor());
-        super.loadItems(dest, new JsonLoader());
+        getItems(source, new CsvExtractor());
+        loadItems(dest, new JsonLoader());
     }
 }
