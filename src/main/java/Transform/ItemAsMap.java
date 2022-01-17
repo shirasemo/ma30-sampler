@@ -1,7 +1,6 @@
 package Transform;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class ItemAsMap {
     private HashMap<String, String> parameters;
