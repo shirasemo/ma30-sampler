@@ -14,9 +14,7 @@ public abstract class GeneralTransformer {
         this.map = new ArrayList<>();
     }
 
-    public void getItems(File file, Extractor extractor) {
-        this.map = extractor.extract(file);
-    }
+    public void getItems(File file, Extractor extractor) {this.map = extractor.extract(file);}
 
     public void loadItems(File[] files, Loader loader) {
         loader.load(this.map, files);
@@ -25,4 +23,6 @@ public abstract class GeneralTransformer {
     public ArrayList<ArrayList<ItemAsMap>> getMap() {
         return map;
     }
+
+    public ArrayList<ArrayList<ItemAsMap>> getAnotherMap(File file, Extractor extractor) { return extractor.extract(file);}
 }

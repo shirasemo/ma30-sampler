@@ -1,6 +1,6 @@
 package Transform.Transformers;
 
-import Extract.Extractors.CsvExtractor;
+import Extract.Extractors.CsvExtractorNumLimit;
 import Load.Loaders.XmlLoader;
 import Transform.Transformer;
 import health_care_provider.HealthCareInfoProvider;
@@ -12,7 +12,7 @@ import java.io.File;
 public class CsvToXml extends GeneralTransformer implements Transformer {
     @Override
     public void transform(File source, File[] dest) {
-        getItems(source, new CsvExtractor());
+        getItems(source, new CsvExtractorNumLimit());
         HealthCareInfoProvider healthCareInfoProvider = new HealthCareInfoProvider();
         for (int i = 0; i < this.getMap().size(); i++) {
             for (int j = 0; j < this.getMap().get(i).size(); j++) {
