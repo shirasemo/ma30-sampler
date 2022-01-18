@@ -1,13 +1,14 @@
 package Main;
 
-import Extract.Extractors.CsvExtractorSizeLimit;
-import Transform.Transformers.CsvToXml;
+import Extract.Extractors.CsvExtractor;
+import Transform.Transformers.PositivePeople;
 
 import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        CsvExtractorSizeLimit c = new CsvExtractorSizeLimit();
-        c.extract(new File("C:\\Users\\shira\\Code\\Sampler\\src\\main\\resources\\LabTests.csv"));
+        PositivePeople positivePeople = new PositivePeople();
+        positivePeople.transform(new File("C:\\Users\\shira\\Code\\Sampler\\src\\main\\resources\\MadaReports.csv"),
+                new File[]{new File("C:\\Users\\shira\\Code\\Sampler\\src\\main\\resources\\POSITIVE_CORONA_PEOPLE\\positives.json")});
     }
 }

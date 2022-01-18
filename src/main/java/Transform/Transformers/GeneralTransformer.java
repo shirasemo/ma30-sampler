@@ -24,5 +24,9 @@ public abstract class GeneralTransformer {
         return map;
     }
 
+    public void setMap(ArrayList<ArrayList<ItemAsMap>> map) {
+        this.map = map;
+    }
+
     public ArrayList<ArrayList<ItemAsMap>> getAnotherMap(File file, Extractor extractor) { return extractor.extract(file);}
 }
