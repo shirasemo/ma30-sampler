@@ -16,19 +16,19 @@ public abstract class GeneralTransformer {
 
     public abstract void transform(File source, File[] dest);
 
-    public void getItems(File file, Extractor extractor) {this.map = extractor.extract(file);}
+    protected void getItems(File file, Extractor extractor) {this.map = extractor.extract(file);}
 
-    public void loadItems(File[] files, Loader loader) {
+    protected void loadItems(File[] files, Loader loader) {
         loader.load(this.map, files);
     }
 
-    public ArrayList<ArrayList<ItemAsMap>> getMap() {
+    protected ArrayList<ArrayList<ItemAsMap>> getMap() {
         return map;
     }
 
-    public void setMap(ArrayList<ArrayList<ItemAsMap>> map) {
+    protected void setMap(ArrayList<ArrayList<ItemAsMap>> map) {
         this.map = map;
     }
 
-    public ArrayList<ArrayList<ItemAsMap>> getAnotherMap(File file, Extractor extractor) { return extractor.extract(file);}
+    protected ArrayList<ArrayList<ItemAsMap>> getAnotherMap(File file, Extractor extractor) { return extractor.extract(file);}
 }

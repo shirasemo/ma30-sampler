@@ -31,14 +31,14 @@ public class PositivePeople extends GeneralTransformer {
                         add.addParameter("ResultTestCorona", "1");
                         String[] pLab = {"IDNum", "IDType", "FirstName", "LastName", "BirthDate", "LabCode", "StickerNumber", "Variant", "TestType"};
                         String[] pMda = {"City", "Street", "BuildingNumber", "Barcode", "ResultDate", "TakeDate"};
-                        for (int k = 0; k < pLab.length; k++) {
-                            add.addParameter(pLab[k], lab.get(i).get(j).getParameter(pLab[k]));
-                            currentBytes += pLab[k].getBytes().length + lab.get(i).get(j).getParameter(pLab[k]).getBytes().length;
+                        for (String s : pLab) {
+                            add.addParameter(s, lab.get(i).get(j).getParameter(s));
+                            currentBytes += s.getBytes().length + lab.get(i).get(j).getParameter(s).getBytes().length;
                             bytes += currentBytes;
                         }
-                        for (int k = 0; k < pMda.length; k++) {
-                            add.addParameter(pMda[k], this.getMap().get(a).get(b).getParameter(pMda[k]));
-                            currentBytes += pMda[k].getBytes().length + this.getMap().get(i).get(j).getParameter(pMda[k]).getBytes().length;
+                        for (String s : pMda) {
+                            add.addParameter(s, this.getMap().get(a).get(b).getParameter(s));
+                            currentBytes += s.getBytes().length + this.getMap().get(i).get(j).getParameter(s).getBytes().length;
                             bytes += currentBytes;
                         }
                         if (bytes >= 20000000 - currentBytes) {
@@ -57,7 +57,7 @@ public class PositivePeople extends GeneralTransformer {
         loadItems(dest, new JsonLoader());
     }
 
-    public int[] findPersonById(String id) {
+    private int[] findPersonById(String id) {
         for (int i = 0; i < this.getMap().size(); i++)
             for (int j = 0; j < this.getMap().get(i).size(); j++)
                 if (this.getMap().get(i).get(j).getParameter("IDNum").equals(id))
