@@ -11,16 +11,16 @@ public abstract class ReadCsvToMap {
     int index = 0;
     BufferedReader br;
 
-    public void setKeys() throws IOException {
+    protected void setKeys() throws IOException {
         this.map.add(new ArrayList<>());
         this.keys = this.br.readLine().split(",");
     }
 
-    public void setBr(File file) throws FileNotFoundException {
+    protected void setBr(File file) throws FileNotFoundException {
         this.br = new BufferedReader(new FileReader(file));
     }
 
-    public ItemAsMap lineToMap(String[] values) {
+    protected ItemAsMap lineToMap(String[] values) {
         ItemAsMap item = new ItemAsMap();
         for (int i = 0; i < values.length; i++)
             item.addParameter(this.keys[i], values[i]);

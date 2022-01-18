@@ -1,7 +1,5 @@
 package Main;
 
-import Extract.Extractors.CsvExtractor;
-import Transform.Transformers.GeneralTransformer;
 import Transform.Transformers.PositivePeople;
 
 import java.io.File;

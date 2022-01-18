@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 public abstract class GeneralLoader {
 
-    public boolean checkFilesNum(ArrayList<ArrayList<ItemAsMap>> item, File[] dest) {
+    protected boolean checkFilesNum(ArrayList<ArrayList<ItemAsMap>> item, File[] dest) {
         if (dest.length < item.size())
             return false;
         return true;
     }
 
-    public void write(File file, String value) {
+    protected void write(File file, String value) {
         try {
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(value);
