@@ -12,14 +12,13 @@ public class CsvExtractorNumLimit extends ReadCsvToMap implements Extractor {
         try {
             setBr(file);
             setKeys();
-            String line = this.br.readLine();
-            while (line != null) {
-                this.map.get(this.index).add(lineToMap(line.split(",")));
+            while (this.line != null) {
+                this.map.get(this.index).add(lineToMap(this.line.split(",")));
                 if (this.map.get(this.index).size() == 50000) {
                     this.index++;
                     this.map.add(new ArrayList<>());
                 }
-                line = this.br.readLine();
+                this.line = this.br.readLine();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

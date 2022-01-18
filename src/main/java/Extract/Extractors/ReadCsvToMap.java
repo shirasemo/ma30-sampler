@@ -6,18 +6,20 @@ import java.io.*;
 import java.util.ArrayList;
 
 public abstract class ReadCsvToMap {
-    String[] keys;
-    ArrayList<ArrayList<ItemAsMap>> map = new ArrayList<>();
-    int index = 0;
-    BufferedReader br;
+    protected String[] keys;
+    protected ArrayList<ArrayList<ItemAsMap>> map = new ArrayList<>();
+    protected int index = 0;
+    protected BufferedReader br;
+    protected String line;
 
     protected void setKeys() throws IOException {
         this.map.add(new ArrayList<>());
         this.keys = this.br.readLine().split(",");
     }
 
-    protected void setBr(File file) throws FileNotFoundException {
+    protected void setBr(File file) throws IOException {
         this.br = new BufferedReader(new FileReader(file));
+        this.line = br.readLine();
     }
 
     protected ItemAsMap lineToMap(String[] values) {

@@ -14,10 +14,9 @@ public class CsvExtractor extends ReadCsvToMap implements Extractor {
         try {
             setBr(file);
             setKeys();
-            String line = this.br.readLine();
-            while (line != null) {
-                this.map.get(0).add(lineToMap(line.split(",")));
-                line = this.br.readLine();
+            while (this.line != null) {
+                this.map.get(0).add(lineToMap(this.line.split(",")));
+                this.line = this.br.readLine();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
