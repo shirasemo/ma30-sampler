@@ -2,14 +2,13 @@ package Transform.Transformers;
 
 import Extract.Extractors.CsvExtractorNumLimit;
 import Load.Loaders.XmlLoader;
-import Transform.Transformer;
 import health_care_provider.HealthCareInfoProvider;
 import health_care_provider.errors.InvalidIdException;
 import health_care_provider.models.PersonInsured;
 
 import java.io.File;
 
-public class CsvToXml extends GeneralTransformer implements Transformer {
+public class CsvToXml extends GeneralTransformer {
     @Override
     public void transform(File source, File[] dest) {
         getItems(source, new CsvExtractorNumLimit());

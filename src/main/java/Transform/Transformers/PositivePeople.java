@@ -3,12 +3,11 @@ package Transform.Transformers;
 import Extract.Extractors.CsvExtractor;
 import Load.Loaders.JsonLoader;
 import Transform.ItemAsMap;
-import Transform.Transformer;
 
 import java.io.File;
 import java.util.ArrayList;
 
-public class PositivePeople extends GeneralTransformer implements Transformer {
+public class PositivePeople extends GeneralTransformer {
 
     @Override
     public void transform(File source, File[] dest) {
@@ -24,6 +23,7 @@ public class PositivePeople extends GeneralTransformer implements Transformer {
                 if (lab.get(i).get(j).getParameter("ResultTestCorona").equals("1")) {
                     int[] found = findPersonById(lab.get(i).get(j).getParameter("IDNum"));
                     if (found != null) {
+                        long currentBytes = 0;
                         int a = found[0];
                         int b = found[1];
 
@@ -33,13 +33,15 @@ public class PositivePeople extends GeneralTransformer implements Transformer {
                         String[] pMda = {"City", "Street", "BuildingNumber", "Barcode", "ResultDate", "TakeDate"};
                         for (int k = 0; k < pLab.length; k++) {
                             add.addParameter(pLab[k], lab.get(i).get(j).getParameter(pLab[k]));
-                            bytes += pLab[k].getBytes().length + lab.get(i).get(j).getParameter(pLab[k]).getBytes().length;
+                            currentBytes += pLab[k].getBytes().length + lab.get(i).get(j).getParameter(pLab[k]).getBytes().length;
+                            bytes += currentBytes;
                         }
                         for (int k = 0; k < pMda.length; k++) {
                             add.addParameter(pMda[k], this.getMap().get(a).get(b).getParameter(pMda[k]));
-                            bytes += pMda[k].getBytes().length + this.getMap().get(i).get(j).getParameter(pMda[k]).getBytes().length;
+                            currentBytes += pMda[k].getBytes().length + this.getMap().get(i).get(j).getParameter(pMda[k]).getBytes().length;
+                            bytes += currentBytes;
                         }
-                        if (bytes >= 20000000) {
+                        if (bytes >= 20000000 - currentBytes) {
                             bytes = 0;
                             index++;
                             positives.add(new ArrayList<>());
