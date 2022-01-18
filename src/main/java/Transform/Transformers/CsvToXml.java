@@ -8,7 +8,7 @@ import health_care_provider.models.PersonInsured;
 
 import java.io.File;
 
-public class CsvToXml extends GeneralTransformer {
+public class CsvToXml extends Transformer {
     @Override
     public void transform(File source, File[] dest) {
         getItems(source, new CsvExtractorNumLimit());

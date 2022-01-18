@@ -7,10 +7,10 @@ import Transform.ItemAsMap;
 import java.io.File;
 import java.util.ArrayList;
 
-public abstract class GeneralTransformer {
+public abstract class Transformer {
     private ArrayList<ArrayList<ItemAsMap>> map;
 
-    public GeneralTransformer() {this.map = new ArrayList<>();}
+    public Transformer() {this.map = new ArrayList<>();}
 
     public abstract void transform(File source, File[] dest);
 

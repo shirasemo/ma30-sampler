@@ -5,7 +5,7 @@ import Load.Loaders.JsonLoader;
 
 import java.io.File;
 
-public class CsvToJson extends GeneralTransformer {
+public class CsvToJson extends Transformer {
     @Override
     public void transform(File source, File[] dest) {
         getItems(source, new CsvExtractorNumLimit());

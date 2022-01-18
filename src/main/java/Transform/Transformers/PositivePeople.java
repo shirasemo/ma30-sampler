@@ -7,7 +7,7 @@ import Transform.ItemAsMap;
 import java.io.File;
 import java.util.ArrayList;
 
-public class PositivePeople extends GeneralTransformer {
+public class PositivePeople extends Transformer {
 
     @Override
     public void transform(File source, File[] dest) {
